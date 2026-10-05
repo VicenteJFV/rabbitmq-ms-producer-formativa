@@ -1,13 +1,18 @@
 package cl.duoc.rabbitmq_ms_productor;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// Controlador que expone el endpoint REST
 @RestController
 @RequestMapping("/api/messages")
+
+// Permite solicitudes desde el frontend Angular local
+@CrossOrigin(origins = "http://localhost:4200")
 public class MessageController {
 
     private final Sender sender;
@@ -27,8 +32,8 @@ public class MessageController {
         );
 
         return ResponseEntity.ok(
-                "Mensaje enviado con Routing Key: "
-                        + request.level()
+                "Mensaje enviado: " + request.message()
+                        + " (Routing Key: " + request.level() + ")"
         );
     }
 
