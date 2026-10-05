@@ -1,0 +1,23 @@
+spring:
+  application:
+    # Nombre del microservicio
+    name: rabbitmq-ms-productor
+
+  rabbitmq:
+    # Dirección de RabbitMQ
+    host: localhost
+
+    # Puerto de comunicación AMQP
+    port: 5672
+
+    # Credenciales de acceso
+    username: guest
+    password: guest
+
+    # Virtual Host utilizado
+    virtual-host: /
+
+server:
+  # Puerto donde se ejecutará la API REST
+  # (8081: el mismo que usan la prueba de Postman y la guía de Angular)
+  port: 8081
